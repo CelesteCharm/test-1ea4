@@ -1,51 +1,46 @@
-import React, { useState } from "react";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Button from 'react-bootstrap/Button';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  function handlePlus() {
-    setCount(count + 1);
-  }
-
-  function handleMinus() {
-    setCount(count - 1);
-  }
-
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>Welcome to my app</h1>
-      <br />
-      <div style={styles.counter}>{count}</div>
-      <button style={styles.button} onClick={handleMinus}>
-        Minus
-      </button>
-      <button style={styles.button} onClick={handlePlus}>
-        Plus
-      </button>
+    <div>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+    <Button variant="primary">Primary</Button>{' '}
+    <Button variant="secondary">Secondary</Button>{' '}
+    <Button variant="success">Success</Button>{' '}
+      <Button variant="warning">Warning</Button>{' '}
+      <Button variant="danger">Danger</Button>{' '}
+      <Button variant="info">Info</Button>{' '}
+      <Button variant="light">Light</Button>{' '}
+      <Button variant="dark">Dark</Button>
+      <Button variant="link">Link</Button>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    textAlign: 'center',
-    marginTop: '50px',
-  },
-  heading: {
-    fontSize: '24px',
-    color: '#333',
-  },
-  counter: {
-    fontSize: '36px',
-    fontWeight: 'bold',
-    margin: '20px 0',
-  },
-  button: {
-    padding: '10px 20px',
-    fontSize: '16px',
-    margin: '0 10px',
-    cursor: 'pointer',
-  },
-};
 
 export default App;
